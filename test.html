@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript">
+
+// Good luck!
+
+var map;
+
+function initialize()
+{
+    // 地图参数
+    var myOptions = {
+      zoom: 8,
+      center: new google.maps.LatLng(-27.463347, 153.02496),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+
+    // 创建地图
+    map = new google.maps.Map(document.getElementById('map_canvas'), myOptions);
+
+    // 添加地图响应函数
+    google.maps.event.addListener(map, "click", setPin);
+	
+	//window.console.log(map.getZoom());
+
+}
+
+// 鼠标点击地图得到地图上某点的经纬度
+function setPin(details)
+{	
+	//window.console.log(details.latLng.lat().toString());
+	//window.console.log(details.latLng.lng().toString());
+	//window.console.log(map.getZoom());
+  
+	// 大头针参数
+	var options = {
+      position: new google.maps.LatLng(details.latLng.lat(), details.latLng.lng())
+    };
+
+    // 创建大头针
+    marker = new google.maps.Marker(options);
+	
+	marker.setMap(map);
+
+}
+</script>
+ 
+</head>
+<body onload="initialize()">
+	 <div id="map_canvas" style="width:800px; height:500px;"></div>
+</body>
+</html>
