@@ -18,6 +18,7 @@ class VisitEntry
 		return $szVE;
 		
 	}
+	
 }
 
 ?>

@@ -30,6 +30,7 @@ $ve->szLocation= $locations['longitude'].",".$locations['latitude'];
 echo $ve->VEToString();
 
 
+
 /*
 if (!empty($locations) && is_array($locations)) {
   foreach ($locations as $field => $val) {
