@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<title>Locations</title>
 <script type="text/javascript">
 function loadXMLDoc()
 {
@@ -18,18 +19,19 @@ xmlhttp.onreadystatechange=function()
   if (xmlhttp.readyState==4 && xmlhttp.status==200)
     {
 	// actual content here
-    document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+    document.getElementById("historyDiv").innerHTML=xmlhttp.responseText;
     }
   }
-xmlhttp.open("GET","ajax_info.txt",true);
+xmlhttp.open("GET","data.txt",true);
 xmlhttp.send();
 }
 </script>
 </head>
 <body>
+<h2>visiting history</h2>
+<button type="button" onclick="loadXMLDoc()">Obtain History</button>
 
-<div id="myDiv"><h2>Let AJAX change this text</h2></div>
-<button type="button" onclick="loadXMLDoc()">Change Content</button>
+<div id="historyDiv"></div>
 
 </body>
 </html>

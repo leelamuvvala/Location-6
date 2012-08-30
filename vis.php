@@ -1,7 +1,8 @@
 <?php
 
 include('ip2locationlite.class.php');
-include('VisitEntry.php');
+include_once('VisitEntry.php');
+include_once('common.php');
  
 //Load the class
 $ipLite = new ip2location_lite;
@@ -27,7 +28,13 @@ $ve->szLocation= $locations['longitude'].",".$locations['latitude'];
 
 //
 
-echo $ve->VEToString();
+//echo $ve->VEToString();
+
+
+// debug
+//echo loadFromText("data.txt");
+//stringToVE("14.202.69.232#AUSTRALIA#PERTH#2012-08-31 05:57:10#115.833,-31.9333");
+insertOneLocation($ve, "data.txt");
 
 
 
