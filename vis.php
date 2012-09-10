@@ -24,7 +24,7 @@ $ve->szIPAddress= $locations['ipAddress'];
 $ve->szCity= $locations['cityName'];
 $ve->szCountry= $locations['countryName'];
 $ve->szDate= date("Y-m-d H:i:s");
-$ve->szLocation= $locations['longitude'].",".$locations['latitude'];
+$ve->szLocation= $locations['latitude'].",".$locations['longitude'];
 
 //
 

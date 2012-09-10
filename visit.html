@@ -2,17 +2,120 @@
 <html>
 <head>
 <title>Locations</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript">
 
+var map;
+
+//初始化函数
+function initialize() {
+
+	// 配置地图的相关信息
+    var myOptions = {
+      zoom: 12,
+	  
+	  // 设置地图的中心坐标
+      center: new google.maps.LatLng(-27.463347, 153.02496),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+
+	// 显示在 html 标签里面
+    var map = new google.maps.Map(document.getElementById('map_canvas'), myOptions);
+
+	// get all the locations from the table
+	var locates= document.getElementsByName('locates');
+
+	window.console.log(locates[0].innerHTML);
+	
+	var coords= new Array();
+	for(var i=0; i< locates.length; i++)
+	{
+		var laln= locates[i].innerHTML.split(",");
+		
+		//window.console.log(laln[0]);
+		//window.console.log(laln[1]);
+		
+		coords.push([parseFloat(laln[0]),parseFloat(laln[1])]);
+	}
+	
+	window.console.log(coords.length);
+	window.console.log(coords[1]);
+	
+    // iterate over your coords array
+    
+	for (var j = 0; j < coords.length; j++)
+	{
+		window.console.log(coords[j][0]);
+		window.console.log(coords[j][1]);
+		
+		//marker= new google.maps.Maker({
+		//	position: new google.maps.LatLng(coords[j][0], coords[j][1]),
+		//	map: map
+		//	
+		//});
+		
+		var option={
+			position: new google.maps.LatLng(coords[j][0], coords[j][1])
+		};
+
+		//var marker = new google.maps.Marker(option);
+		var marker = add_marker(coords[j][0], coords[j][1]);
+		marker.setMap(map);
+		
+	}
+	
+	var marker = new google.maps.Marker(myOptions);
+	marker= 
+	marker.setMap(map, coords);
+}
+
+function add_marker(lat,lng) {
+   
+ 
+    var marker = new google.maps.Marker({
+          position: new google.maps.LatLng(lat,lng),
+          map: map
+    });
+       
+    google.maps.event.addListener(marker, 'click', function() {
+      infowindow.open(map,marker);
+    });   
+       
+    return marker;
+  }
+
+
+</script>
 </head>
-<body>
+<body onload="initialize();">
+<div>
 <h2>visitor history</h2>
 <?php
 
+include('common.php');
 $locations= loadFromText("data.txt");
 
-print_r($locations);
-?>
+echo("<table><tr><td>Ip Address</td><td>Country</td><td>City</td><td>Date</td><td>Location</td></tr>");
 
+foreach($locations as $location)
+{
+	if($location!=null){
+	echo("<tr><td>".$location->szIPAddress."</td>");
+	echo("<td>".$location->szCountry."</td>");
+	echo("<td>".$location->szCity."</td>");
+	echo("<td>".$location->szDate."</td>");
+	echo("<td name='locates'>".$location->szLocation."</td>");
+	echo("</tr>");}
+}
+
+echo("</table>");
+?>
+<button onclick="">
+</div>
+<div>
+	 <div id="map_canvas" style="width:800px; height:500px;"></div>
+</div>
 </body>
 </html>
 
