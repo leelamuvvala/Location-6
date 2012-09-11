@@ -4,6 +4,9 @@ include('ip2locationlite.class.php');
 include_once('VisitEntry.php');
 include_once('common.php');
  
+
+function addNewEntry()
+{
 //Load the class
 $ipLite = new ip2location_lite;
 $ipLite->setKey('adc052868906df816235a05f995cd0b86d59b89f424de685a98e1f6d51b806d7');
@@ -34,9 +37,9 @@ $ve->szLocation= $locations['latitude'].",".$locations['longitude'];
 // debug
 //echo loadFromText("data.txt");
 //stringToVE("14.202.69.232#AUSTRALIA#PERTH#2012-08-31 05:57:10#115.833,-31.9333");
-insertOneLocation($ve, "data.txt");
+insertOneLocation($ve, "./visitor/data.txt");
 
-
+}
 
 /*
 if (!empty($locations) && is_array($locations)) {

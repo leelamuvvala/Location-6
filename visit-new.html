@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 <head>
 <title>Locations</title>
@@ -26,21 +26,19 @@ function initialize() {
 	// get all the locations from the table
 	var locates= document.getElementsByName('locates');
 
-	window.console.log(locates[0].innerHTML);
+	//window.console.log(locates[0].innerHTML);
 	
 	var coords= new Array();
 	for(var i=0; i< locates.length; i++)
 	{
 		var laln= locates[i].innerHTML.split(",");
 		
-		//window.console.log(laln[0]);
-		//window.console.log(laln[1]);
-		
 		coords.push([parseFloat(laln[0]),parseFloat(laln[1])]);
 	}
 	
-	window.console.log(coords.length);
-	window.console.log(coords[1]);
+	//useful debug
+	//window.console.log(coords.length);
+	//window.console.log(coords[1]);
 	
     // iterate over your coords array
     
@@ -72,7 +70,6 @@ function initialize() {
 
 function add_marker(lat,lng) {
    
- 
     var marker = new google.maps.Marker({
           position: new google.maps.LatLng(lat,lng),
           map: map
@@ -85,7 +82,7 @@ function add_marker(lat,lng) {
 </script>
 </head>
 <body onload="initialize();">
-<div id="left">
+<div id="left" >
 <h2>visitor history</h2>
 <?php
 
@@ -107,7 +104,6 @@ foreach($locations as $location)
 
 echo("</table>");
 ?>
-<button onclick="">
 </div>
 <div id="right">
 	 <div id="map_canvas" style="width:800px; height:500px;"></div>
