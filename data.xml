@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Edited by XMLSpy® -->
+<location>
+	<ip>130.102.158.18</ip>
+	<country>AUSTRALIA</country>
+	<city>BRISBANE</city>
+	<date>2012-08-30 19:15:05</date>
+	<latitude>-27.498591</latitude>
+	<longitude>153.006027</longitude>
+	<visitTimes>1</visitTimes>
+</location>
+<location>
+	<ip>14.202.69.232</ip>
+	<country>AUSTRALIA</country>
+	<city>PERTH</city>
+	<date>2012-08-31 05:57:10</date>
+	<latitude>-31.9333</latitude>
+	<longitude>115.833</longitude>
+	<visitTimes>1</visitTimes>
+</location>

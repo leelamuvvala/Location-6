@@ -8,19 +8,19 @@
 
 var map;
 
-//初始化函数
+// initialize the function
 function initialize() {
 
-	// 配置地图的相关信息
+	// map information
     var myOptions = {
       zoom: 12,
 	  
-	  // 设置地图的中心坐标
+	  // center
       center: new google.maps.LatLng(-27.463347, 153.02496),
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
 
-	// 显示在 html 标签里面
+	// put it into htmm
     var map = new google.maps.Map(document.getElementById('map_canvas'), myOptions);
 
 	// get all the locations from the table
@@ -89,7 +89,7 @@ function add_marker(lat,lng) {
 include('common.php');
 $locations= loadFromText("data.txt");
 
-echo("<table><tr style='font-weight:bold'><td>Ip Address</td><td>Country</td><td>City</td><td>Date</td><td>Location</td></tr>");
+echo("<table style='visibility:hidden;'><tr style='font-weight:bold'><td>Ip Address</td><td>Country</td><td>City</td><td>Date</td><td>Location</td></tr>");
 
 foreach($locations as $location)
 {
